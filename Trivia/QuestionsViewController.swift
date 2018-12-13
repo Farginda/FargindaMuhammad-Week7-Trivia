@@ -31,11 +31,25 @@ class QuestionsViewController: UIViewController {
             let question = questions[questionIndex]
             if question.correctAnswer.removingHTMLEntities == "False" {
                 score += 1
+                UIView.animate(withDuration: 1.0) {
+                    self.view.backgroundColor = .green
+                }
+            } else {
+                UIView.animate(withDuration: 1.0) {
+                    self.view.backgroundColor = .red
+                }
             }
         case trueButton:
             let question = questions[questionIndex]
             if question.correctAnswer.removingHTMLEntities == "True" {
                 score += 1
+                UIView.animate(withDuration: 1.0) {
+                    self.view.backgroundColor = .green
+                }
+            } else {
+                UIView.animate(withDuration: 1.0) {
+                    self.view.backgroundColor = .red
+                }
             }
         default:
             break
@@ -57,7 +71,9 @@ class QuestionsViewController: UIViewController {
     // function to navigate to next question
     func nextQuestion() {
         questionIndex += 1
-        
+        UIView.animate(withDuration: 1.0) {
+            self.view.backgroundColor = .white
+        }
         if questionIndex < questions.count {
             self.updateUI(with: questions)
         } else {

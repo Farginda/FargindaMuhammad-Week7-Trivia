@@ -39,7 +39,7 @@ class HighscoreTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return QuestionHelper.shared.highscores.count
+        return highscores.count
     }
     
     // set cell text
