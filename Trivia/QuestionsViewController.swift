@@ -17,7 +17,6 @@ class QuestionsViewController: UIViewController {
     var score = 0
 
     // outlets
-    
     @IBOutlet weak var questionNumberLabel: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var questionLabel: UILabel!
@@ -27,6 +26,7 @@ class QuestionsViewController: UIViewController {
         switch sender {
             
         // keep up score for right answers
+            // if player presses false button
         case falseButton:
             let question = questions[questionIndex]
             if question.correctAnswer.removingHTMLEntities == "False" {
@@ -39,6 +39,8 @@ class QuestionsViewController: UIViewController {
                     self.view.backgroundColor = .red
                 }
             }
+            
+            // if player presses true button
         case trueButton:
             let question = questions[questionIndex]
             if question.correctAnswer.removingHTMLEntities == "True" {

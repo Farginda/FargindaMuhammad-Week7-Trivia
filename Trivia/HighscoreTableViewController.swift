@@ -15,7 +15,6 @@ class HighscoreTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = editButtonItem
         self.viewWillAppear(true)
         viewHighScores()
     }
@@ -30,6 +29,11 @@ class HighscoreTableViewController: UITableViewController {
         QuestionHelper.shared.fetchHighScores() { (highscores) in
             if let highscores = highscores {
                 self.highscores = highscores
+                
+                // reload data after fetching highscores
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
     }

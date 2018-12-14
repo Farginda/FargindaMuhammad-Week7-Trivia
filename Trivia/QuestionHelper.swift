@@ -15,7 +15,7 @@ class QuestionHelper {
     
     let baseurl = URL(string: "https://opentdb.com/api.php?amount=10&category=11&type=boolean")!
 
-    // GET request for questions API
+    // get questions
     func fetchQuestions(completion: @escaping ([Question]?) -> Void) {
         let task = URLSession.shared.dataTask(with: baseurl)
         { (data, response, error) in
