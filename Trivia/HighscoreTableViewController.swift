@@ -25,6 +25,7 @@ class HighscoreTableViewController: UITableViewController {
         return cell
     }
 
+    // shows highscores
     func viewHighScores() {
         QuestionHelper.shared.fetchHighScores() { (highscores) in
             if let highscores = highscores {
